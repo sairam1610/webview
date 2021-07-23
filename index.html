@@ -1,53 +1,24 @@
+<!DOCTYPE html>
 <html>
- <head>
-  <style>
-  body{
- background-color: #FA5858;
-color:#fff;
-  }
-input{
-background-color: #F7D358;
-width: 300px;
-padding:10px;
-color: #000;
- }
- div#content{
- padding:20px;
- background-color: #F7D358;
-  color: #000;
- }
- </style>
- <script type="text/javascript">
-  function showAndroidToast(toastmsg) {
-    Android.showToast(toastmsg);
-   }
-   function qrCodeValue(value){
-    window.location.href=value;
-   }
-
-   function openCamera(){
-     console.log("opening camera");
-        navigator.mediaDevices
-        .getUserMedia({ video: { facingMode: "environment" } })
-        .then(function(stream) {
-          console.log(stream)
-        },(error)=>{
-          console.log(error);
-        });
-      }
-   openCamera();
- </script>
+  <head>
+    <title>QR Code Scanner</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+    <link rel="stylesheet" href="src/styles.css" />
+    <script src="https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js"></script>
   </head>
+
   <body>
-  <h3>Binding JavaScript code to Android code</h3>
-      <div id="content">
-        //some con
-         </div>
-     <div>
-   Here are few examples:
-     </div>
-  <div>
-       <input type="button" value="Scan QR Code" onClick="showAndroidToast('Toast made by Javascript')" /><br/>
-          </div>
-     </body>
-    </html>
+    <div id="container">
+      <h1>QR Code Scanner</h1>
+
+      <canvas hidden="" id="qr-canvas"></canvas>
+
+      <div id="qr-result" hidden="">
+        <b>Data:</b> <span id="outputData"></span>
+      </div>
+    </div>
+
+    <script src="./src/qrCodeScanner.js"></script>
+  </body>
+</html>
