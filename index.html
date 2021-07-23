@@ -1,0 +1,53 @@
+<html>
+ <head>
+  <style>
+  body{
+ background-color: #FA5858;
+color:#fff;
+  }
+input{
+background-color: #F7D358;
+width: 300px;
+padding:10px;
+color: #000;
+ }
+ div#content{
+ padding:20px;
+ background-color: #F7D358;
+  color: #000;
+ }
+ </style>
+ <script type="text/javascript">
+  function showAndroidToast(toastmsg) {
+    Android.showToast(toastmsg);
+   }
+   function qrCodeValue(value){
+    window.location.href=value;
+   }
+
+   function openCamera(){
+     console.log("opening camera");
+        navigator.mediaDevices
+        .getUserMedia({ video: { facingMode: "environment" } })
+        .then(function(stream) {
+          console.log(stream)
+        },(error)=>{
+          console.log(error);
+        });
+      }
+   openCamera();
+ </script>
+  </head>
+  <body>
+  <h3>Binding JavaScript code to Android code</h3>
+      <div id="content">
+        //some con
+         </div>
+     <div>
+   Here are few examples:
+     </div>
+  <div>
+       <input type="button" value="Scan QR Code" onClick="showAndroidToast('Toast made by Javascript')" /><br/>
+          </div>
+     </body>
+    </html>
